@@ -63,10 +63,10 @@ function LeagueTable({ rows }) {
       <table className="league-table">
         <thead>
           <tr>
-            <th className="th-pos">#</th>
+            <th className="th-pos"></th>
             <th className="th-badge"></th>
-            <th className="th-team">Team</th>
-            <th>P</th>
+            <th className="th-team"></th>
+            {/* <th>P</th> */}
             <th>GF</th>
             <th>GD</th>
             <th>Pts</th>
@@ -78,7 +78,7 @@ function LeagueTable({ rows }) {
               <td className="td-pos">{i + 1}</td>
               <td className="td-badge"><TeamBadge team={row.team} /></td>
               <td className="td-team">{row.team}</td>
-              <td className="td-num">{row.played}</td>
+              {/* <td className="td-num">{row.played}</td> */}
               <td className="td-num">{row.gf}</td>
               <td className="td-num">{row.gd > 0 ? `+${row.gd}` : row.gd}</td>
               <td className="td-pts">{row.pts}</td>
@@ -218,7 +218,8 @@ export default function App() {
         <div className="header-top">
           <div>
             <h1>SPFL Top 6</h1>
-            <p className="app-subtitle">Final 3 Rounds — Permutations</p>
+            <p className="app-subtitle">Final 3 Rounds</p>
+            <p className="app-subtitle">By <a href="https://twitter.com/hoskdoug">hoskdoug</a></p>
           </div>
           <ShareButton scores={scores} viewAfter={viewAfter} />
         </div>
