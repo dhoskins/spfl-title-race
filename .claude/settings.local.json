@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s http://localhost:5173/src/App.jsx)",
+      "Bash(curl -s \"http://localhost:5173/@vite/client\")",
+      "Bash(curl *)"
+    ]
+  }
+}
