@@ -228,7 +228,7 @@ export default function App() {
       <header className="app-header">
         <div className="header-top">
           <div>
-            <h1>SPFL Post Split Reckoner</h1>
+            <h1>SPFL Title Race Reckoner</h1>
             <p className="app-subtitle">By <a href="https://twitter.com/hoskdoug">hoskdoug</a></p>
           </div>
           <ShareButton scores={scores} viewAfter={viewAfter} />
