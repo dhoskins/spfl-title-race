@@ -67,7 +67,7 @@ function LeagueTable({ rows }) {
             <th className="th-badge"></th>
             <th className="th-team"></th>
             {/* <th>P</th> */}
-            <th>GF</th>
+            <th>FOR</th>
             <th>GD</th>
             <th>Pts</th>
           </tr>
