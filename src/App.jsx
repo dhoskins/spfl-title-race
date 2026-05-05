@@ -212,6 +212,17 @@ export default function App() {
 
   const table = computeTable(scores, viewAfter)
 
+  const outcomeString = (() => {
+    const [first, second] = table
+    if (!second) return `${first.team} win the league`
+    if (first.pts > second.pts) return `${first.team} win the league`
+    if (first.gd  > second.gd)  return `${first.team} win the league on goal difference`
+    if (first.gf  > second.gf)  return `${first.team} win the league on goals scored`
+    const topTwo = new Set([first.team, second.team])
+    if (topTwo.has('Hearts') && topTwo.has('Celtic')) return 'Hearts win the league on head-to-head points'
+    return `${first.team} win the league`
+  })()
+
   return (
     <div className="app">
       <header className="app-header">
@@ -237,6 +248,8 @@ export default function App() {
           </button>
         ))}
       </div> */}
+
+      <div className="outcome-banner">{outcomeString}</div>
 
       <LeagueTable rows={table} />
 

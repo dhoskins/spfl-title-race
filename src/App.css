@@ -139,6 +139,20 @@ body {
   opacity: 0.75;
 }
 
+/* ── Outcome banner ── */
+.outcome-banner {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--top-bg);
+  border: 1px solid var(--top-border);
+  border-radius: 12px;
+  padding: 14px 20px;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
 /* ── League table ── */
 .table-wrapper {
   background: var(--surface);

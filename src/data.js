@@ -117,6 +117,9 @@ export function computeTable(scores, viewAfter) {
     if (b.pts !== a.pts) return b.pts - a.pts
     if (b.gd  !== a.gd)  return b.gd  - a.gd
     if (b.gf  !== a.gf)  return b.gf  - a.gf
+    const bothCelticHearts = (a.team === 'Hearts' || a.team === 'Celtic') &&
+                             (b.team === 'Hearts' || b.team === 'Celtic')
+    if (bothCelticHearts) return a.team === 'Hearts' ? -1 : 1
     return a.team.localeCompare(b.team)
   })
 }
