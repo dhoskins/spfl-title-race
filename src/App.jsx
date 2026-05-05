@@ -226,11 +226,9 @@ export default function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <div className="header-top">
-          <div>
-            <h1>SPFL Title Race Reckoner</h1>
-            <p className="app-subtitle">By <a href="https://twitter.com/hoskdoug">hoskdoug</a></p>
-          </div>
+        <h1>Scottish Premiership Title Race Reckoner</h1>
+        <div className="header-sub">
+          <p className="app-subtitle">By <a href="https://twitter.com/hoskdoug">hoskdoug</a></p>
           <ShareButton scores={scores} viewAfter={viewAfter} />
         </div>
       </header>
