@@ -258,7 +258,7 @@ export default function App() {
       <LeagueTable rows={table} />
 
       <div className="rounds">
-        {ROUNDS.map(round => (
+        {ROUNDS.filter(round => !round.matches.every(m => m.result)).map(round => (
           <RoundSection
             key={round.id}
             round={round}
