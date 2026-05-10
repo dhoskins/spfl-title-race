@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react'
-import { ROUNDS, VIEW_OPTIONS, TEAM_COLORS, initScores, computeTable, encodeState, decodeState } from './data'
+import { ROUNDS, VIEW_OPTIONS, TEAM_COLORS, initScores, computeTable, encodeState, decodeState, applyLockedScores } from './data'
+
+const LOCKED_MATCH_IDS = new Set(
+  ROUNDS.flatMap(r => r.matches.filter(m => m.result).map(m => m.id))
+)
 import './App.css'
 
 function loadInitialState() {
   const p = new URLSearchParams(window.location.search).get('p')
   if (p) {
     const decoded = decodeState(p)
-    if (decoded) return decoded
+    if (decoded) return { ...decoded, scores: applyLockedScores(decoded.scores) }
   }
   return { scores: initScores(), viewAfter: 38 }
 }
@@ -142,6 +146,8 @@ function ScoreStepper({ value, onChange, disabled }) {
 }
 
 function MatchRow({ match, score, onScore, disabled }) {
+  const locked = !!match.result
+  const isDisabled = disabled || locked
   const homeWins = score.home > score.away
   const awayWins = score.away > score.home
 
@@ -155,20 +161,20 @@ function MatchRow({ match, score, onScore, disabled }) {
         <ScoreStepper
           value={score.home}
           onChange={v => onScore(match.id, 'home', v)}
-          disabled={disabled}
+          disabled={isDisabled}
         />
         <span className="score-sep">–</span>
         <ScoreStepper
           value={score.away}
           onChange={v => onScore(match.id, 'away', v)}
-          disabled={disabled}
+          disabled={isDisabled}
         />
       </div>
       <div className="team-cell away">
         <TeamBadge team={match.away} small />
         <span className={`team-name ${awayWins ? 'winner' : ''}`}>{match.away}</span>
       </div>
-      <span className="kickoff">{match.kickoff}</span>
+      <span className={locked ? 'kickoff kickoff--ft' : 'kickoff'}>{locked ? 'FT' : match.kickoff}</span>
     </div>
   )
 }
@@ -204,6 +210,7 @@ export default function App() {
   const [viewAfter, setViewAfter] = useState(initV)
 
   const handleScore = (matchId, side, value) => {
+    if (LOCKED_MATCH_IDS.has(matchId)) return
     setScores(prev => ({
       ...prev,
       [matchId]: { ...prev[matchId], [side]: value },

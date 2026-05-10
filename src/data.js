@@ -24,8 +24,8 @@ export const ROUNDS = [
     label: 'Round 36',
     dateRange: '9–10 May',
     matches: [
-      { id: 'r36m3', home: 'Falkirk',    away: 'Hibernian', kickoff: '9 May, 15:00' },
-      { id: 'r36m1', home: 'Motherwell', away: 'Hearts',    kickoff: '9 May, 20:00' },
+      { id: 'r36m3', home: 'Falkirk',    away: 'Hibernian', kickoff: '9 May, 15:00',  result: { home: 1, away: 3 } },
+      { id: 'r36m1', home: 'Motherwell', away: 'Hearts',    kickoff: '9 May, 20:00',  result: { home: 1, away: 1 } },
       { id: 'r36m2', home: 'Celtic',     away: 'Rangers',   kickoff: '10 May, 12:00' },
     ],
   },
@@ -87,8 +87,18 @@ export function decodeState(param) {
 
 export function initScores() {
   const s = {}
-  ROUNDS.forEach(r => r.matches.forEach(m => { s[m.id] = { home: 0, away: 0 } }))
+  ROUNDS.forEach(r => r.matches.forEach(m => {
+    s[m.id] = m.result ? { ...m.result } : { home: 0, away: 0 }
+  }))
   return s
+}
+
+export function applyLockedScores(scores) {
+  const result = { ...scores }
+  ROUNDS.forEach(r => r.matches.forEach(m => {
+    if (m.result) result[m.id] = { ...m.result }
+  }))
+  return result
 }
 
 export function computeTable(scores, viewAfter) {

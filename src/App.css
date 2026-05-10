@@ -475,6 +475,13 @@ body {
   min-width: 80px;
 }
 
+.kickoff--ft {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
 /* ── Responsive ── */
 @media (max-width: 480px) {
   .kickoff {
