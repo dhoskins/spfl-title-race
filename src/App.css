@@ -196,8 +196,8 @@ body {
   background: var(--top-bg);
 }
 
-/* Visual divider between top 3 and the rest */
-.row-top:nth-child(3) td {
+/* Visual divider below league leader */
+.row-top td {
   border-bottom: 2px solid var(--top-border);
 }
 

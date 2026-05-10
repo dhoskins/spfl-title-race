@@ -78,7 +78,7 @@ function LeagueTable({ rows }) {
         </thead>
         <tbody>
           {rows.map((row, i) => (
-            <tr key={row.team} className={i < 3 ? 'row-top' : 'row-rest'}>
+            <tr key={row.team} className={i === 0 ? 'row-top' : 'row-rest'}>
               <td className="td-pos">{i + 1}</td>
               <td className="td-badge"><TeamBadge team={row.team} /></td>
               <td className="td-team">{row.team}</td>
