@@ -26,7 +26,7 @@ export const ROUNDS = [
     matches: [
       { id: 'r36m3', home: 'Falkirk',    away: 'Hibernian', kickoff: '9 May, 15:00',  result: { home: 1, away: 3 } },
       { id: 'r36m1', home: 'Motherwell', away: 'Hearts',    kickoff: '9 May, 20:00',  result: { home: 1, away: 1 } },
-      { id: 'r36m2', home: 'Celtic',     away: 'Rangers',   kickoff: '10 May, 12:00' },
+      { id: 'r36m2', home: 'Celtic',     away: 'Rangers',   kickoff: '10 May, 12:00', result: { home: 3, away: 1 } },
     ],
   },
   {
