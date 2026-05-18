@@ -44,9 +44,9 @@ export const ROUNDS = [
     label: 'Round 38',
     dateRange: '16 May',
     matches: [
-      { id: 'r38m1', home: 'Celtic',    away: 'Hearts',     kickoff: '16 May, 12:30' },
-      { id: 'r38m2', home: 'Falkirk',  away: 'Rangers',    kickoff: '16 May, 12:30' },
-      { id: 'r38m3', home: 'Hibernian', away: 'Motherwell', kickoff: '16 May, 12:30' },
+      { id: 'r38m1', home: 'Celtic',    away: 'Hearts',     kickoff: '16 May, 12:30',  result: { home: 3, away: 1 } },
+      { id: 'r38m2', home: 'Falkirk',  away: 'Rangers',    kickoff: '16 May, 12:30',  result: { home: 2, away: 5 } },
+      { id: 'r38m3', home: 'Hibernian', away: 'Motherwell', kickoff: '16 May, 12:30',  result: { home: 0, away: 1 } },
     ],
   },
 ]
